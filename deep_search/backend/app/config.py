@@ -1,6 +1,9 @@
 
 from dataclasses import dataclass
 from google.adk.models.lite_llm import LiteLlm
+import litellm
+
+#litellm._turn_on_debug()
 
 @dataclass
 class ResearchConfiguration:

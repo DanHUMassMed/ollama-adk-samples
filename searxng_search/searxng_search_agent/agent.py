@@ -9,9 +9,12 @@ from mcp import StdioServerParameters
 #glm-4.7-flash:q8_0 
 #gpt-oss:20b
 
-MODEL = LiteLlm(model="openai/gpt-oss:20b",
-                  api_base="http://localhost:11434/v1", 
-                  api_key="no_ollama_key_needed")
+# MODEL = LiteLlm(model="openai/gpt-oss:20b",
+#                   api_base="http://localhost:11434/v1", 
+#                   api_key="no_ollama_key_needed")
+MODEL = LiteLlm(model="openai/mlx-community/gpt-oss-20b-MXFP4-Q8",
+                  api_base="http://localhost:8080/v1", 
+                  api_key="no_key_needed")
 
 root_agent = Agent(
     name="searngx_search_agent",
