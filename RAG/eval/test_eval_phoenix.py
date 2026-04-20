@@ -3,8 +3,12 @@
 Phenix-based local evaluation suite for the RAG agent.
 Uses OpenInference / Phoenix to trace agent calls and evaluate tool usage.
 """
-
 import pathlib
+import sys
+
+# Ensure the RAG parent directory is on sys.path so 'rag_agent' is statically resolvable
+sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
+
 import json
 import asyncio
 from typing import Dict, List, Any
@@ -89,7 +93,7 @@ async def call_rag_agent(query: str) -> Dict[str, Any]:
         "according to", "based on", "source:", "[citation", "retrieved", "documentation"
     ]):
         tool_calls.append({
-            "tool_name": "retrieve_rag_documentation",
+            "tool_name": "ask_chromadb",
             "tool_input": response_text[:100] + "..." if len(response_text) > 100 else response_text
         })
 

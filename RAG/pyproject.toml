@@ -1,0 +1,21 @@
+[project]
+name = "RAG"
+version = "0.1.0"
+description = "Agent can help users with RAG."
+authors = [
+    { name = "Dan Higgins", email = "dphiggins@gmail.com" },
+]
+license = "Apache License 2.0"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "arize-phoenix>=12.25.1",
+    "chromadb>=0.4.21",
+    "google-adk[a2a,eval]>=2.0.0a3",
+    "litellm>=1.82.6",
+    "pypdf>=6.4.2",
+    "sentence-transformers>=5.2.0",
+    "langchain-text-splitters>=1.1.0",
+    "openinference-instrumentation-google-adk>=0.1.10",
+]
+

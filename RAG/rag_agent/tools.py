@@ -1,12 +1,17 @@
 from typing import List
 import chromadb
 from chromadb.utils import embedding_functions
+from pathlib import Path
 
 # --- 1. Initialize the ChromaDB Client and Collection ---
 # This setup is run once when your agent starts up.
 
 # Define paths (must match the path used in the loading script)
-DB_PATH = "./chroma_db_chunks" 
+BASE_DIR = Path(__file__).resolve().parent
+DB_PATH = BASE_DIR.parent / "chroma_db_chunks"
+print(f"Resolved DB_PATH: {DB_PATH}")
+print(f"Exists: {DB_PATH.exists()}")
+
 COLLECTION_NAME = "alphabet_10k_collection_chunks"
 
 # Initialize the embedding function used for both loading and querying

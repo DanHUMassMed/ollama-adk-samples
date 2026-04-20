@@ -1,13 +1,13 @@
 {
-  "eval_set_id": "73584aa1-f639-44a0-a2b2-0b90125d999a",
-  "name": "73584aa1-f639-44a0-a2b2-0b90125d999a",
+  "eval_set_id": "c94d2cd7-c91f-437f-b4a3-f5aa488ee24d",
+  "name": "c94d2cd7-c91f-437f-b4a3-f5aa488ee24d",
   "description": null,
   "eval_cases": [
     {
-      "eval_id": "eval/data/conversation.test.1.json",
+      "eval_id": "/Users/dan/Code/Vibe_Coding/ADK/ollama-adk-samples/RAG/eval/data/conversation.test.1.json",
       "conversation": [
         {
-          "invocation_id": "c9212b9c-726f-4197-9b14-6a3c70b98d08",
+          "invocation_id": "681a8ec6-3719-44b0-8274-137a9dccb277",
           "user_content": {
             "parts": [
               {
@@ -21,7 +21,10 @@
                 "text": "Hi there, I have some questions about the Alphabet 10-K report.",
                 "thought": null,
                 "thought_signature": null,
-                "video_metadata": null
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null
               }
             ],
             "role": "user"
@@ -36,10 +39,13 @@
                 "function_call": null,
                 "function_response": null,
                 "inline_data": null,
-                "text": "Hello! I can help with that. What would you like to know based on the Alphabet 10-K for the fiscal year ended December 31, 2024?",
+                "text": "Hello! I'd be happy to help you with your questions about the Alphabet 10-K report. Please go ahead and ask whatever you'd like to know.",
                 "thought": null,
                 "thought_signature": null,
-                "video_metadata": null
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null
               }
             ],
             "role": "model"
@@ -49,12 +55,12 @@
             "tool_responses": [],
             "intermediate_responses": []
           },
-          "creation_timestamp": 1766257152.014567,
+          "creation_timestamp": 1776691146.1491148,
           "rubrics": null,
           "app_details": null
         },
         {
-          "invocation_id": "5759aeb1-9c41-4502-93d6-a980bd1dde79",
+          "invocation_id": "3ed14d61-5708-45b4-a9b3-20f5dab1c742",
           "user_content": {
             "parts": [
               {
@@ -68,7 +74,10 @@
                 "text": "According to the MD&A, how might the increasing proportion of revenues derived from non-advertising sources like Google Cloud and devices potentially impact Alphabet's overall operating margin, and why?",
                 "thought": null,
                 "thought_signature": null,
-                "video_metadata": null
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null
               }
             ],
             "role": "user"
@@ -83,10 +92,13 @@
                 "function_call": null,
                 "function_response": null,
                 "inline_data": null,
-                "text": "The report states that revenues from cloud, consumer subscriptions, platforms, and devices are increasing. It notes that the margins on these revenues vary significantly and are generally lower than advertising margins. Specifically, device sales adversely affect consolidated margins due to pricing pressure and higher cost of sales. Therefore, this trend may exert downward pressure on the overall operating margin. [Citation: Based on Alphabet 10-K for FYE Dec 31, 2024, Item 7]",
+                "text": "The increasing proportion of revenues from non-advertising sources, such as Google Cloud, devices, and consumer subscription products, could potentially lead to downward pressure on Alphabet's operating margin. This is because these business areas may have margins that are lower than those generated from advertising. Citations: 1) alphabet-form-10-K-2024.pdf (Page 12)",
                 "thought": null,
                 "thought_signature": null,
-                "video_metadata": null
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null
               }
             ],
             "role": "model"
@@ -96,9 +108,9 @@
               {
                 "id": null,
                 "args": {
-                  "query": "How does the growth of non-advertising revenue affect Alphabet's margins?"
+                  "query_text": "how might the increasing proportion of revenues derived from non-advertising sources like Google Cloud and devices potentially impact Alphabet's overall operating margin, and why?"
                 },
-                "name": "retrieve_rag_documentation",
+                "name": "ask_chromadb",
                 "partial_args": null,
                 "will_continue": null
               }
@@ -106,12 +118,12 @@
             "tool_responses": [],
             "intermediate_responses": []
           },
-          "creation_timestamp": 1766257152.014591,
+          "creation_timestamp": 1776691146.1491451,
           "rubrics": null,
           "app_details": null
         },
         {
-          "invocation_id": "b752196e-0ea5-4b67-a064-cc102a75fd5c",
+          "invocation_id": "7ff76434-e5a6-49a8-aea5-aa1579e0bd14",
           "user_content": {
             "parts": [
               {
@@ -125,7 +137,10 @@
                 "text": "The report mentions significant investments in AI. What specific connection is drawn between these AI investments and the company's expectations regarding future capital expenditures?",
                 "thought": null,
                 "thought_signature": null,
-                "video_metadata": null
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null
               }
             ],
             "role": "user"
@@ -140,10 +155,13 @@
                 "function_call": null,
                 "function_response": null,
                 "inline_data": null,
-                "text": "The report explicitly states an expectation that capital expenditures will increase, including expected spend and increased technical infrastructure investment, *in particular* to support AI products and services. [Citation: Based on Alphabet 10-K for FYE Dec 31, 2024, Item 7 & Note About Forward-Looking Statements]",
+                "text": "Alphabet expects its capital expenditures to increase, specifically including an expected increase in technical infrastructure investment—such as servers, network equipment, and data centers—to support the growth of its business and long-term initiatives, particularly in support of artificial intelligence (AI) products and services. Citations: 1) alphabet-form-10-K-2024.pdf, Page 3 2) alphabet-form-10-K-2024.pdf, Page 31",
                 "thought": null,
                 "thought_signature": null,
-                "video_metadata": null
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null
               }
             ],
             "role": "model"
@@ -153,9 +171,9 @@
               {
                 "id": null,
                 "args": {
-                  "query": "Relationship between Alphabet's AI strategy and capital expenditure forecasts"
+                  "query_text": "What specific connection is drawn between AI investments and the company's expectations regarding future capital expenditures?"
                 },
-                "name": "retrieve_rag_documentation",
+                "name": "ask_chromadb",
                 "partial_args": null,
                 "will_continue": null
               }
@@ -163,17 +181,17 @@
             "tool_responses": [],
             "intermediate_responses": []
           },
-          "creation_timestamp": 1766257152.014608,
+          "creation_timestamp": 1776691146.1491652,
           "rubrics": null,
           "app_details": null
         }
       ],
       "conversation_scenario": null,
       "session_input": null,
-      "creation_timestamp": 1766257152.0146089,
+      "creation_timestamp": 1776691146.149167,
       "rubrics": null,
       "final_session_state": {}
     }
   ],
-  "creation_timestamp": 1766257152.014612
+  "creation_timestamp": 1776691146.14917
 }

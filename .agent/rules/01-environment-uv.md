@@ -1,6 +1,8 @@
 ---
+trigger: always_on
 description: Environment Management (uv)
 ---
+
 # Environment Management (uv)
 
 - ALWAYS use `uv` for package management and script execution. Do not use standard `pip` or `pipenv`.
@@ -8,3 +10,4 @@ description: Environment Management (uv)
 - **In-Project Venv:** Assume the active virtual environment is located at `.venv`.
 - **Execution:** Prefer `uv run <cmd>` for scripts to ensure the correct environment state is used.
 - **Syncing:** If a module is missing or throwing an ImportError, run `uv sync` before attempting to troubleshoot the code itself.
+- **python**: always use requires-python = ">=3.14"

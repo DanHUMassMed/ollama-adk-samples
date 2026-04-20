@@ -2,30 +2,30 @@
   {
     "query": "Hi there, I have some questions about the Alphabet 10-K report.",
     "expected_tool_use": [],
-    "reference": "Hello! I can help with that. What would you like to know based on the Alphabet 10-K for the fiscal year ended December 31, 2024?"
+    "reference": "Hello! I'd be happy to help you with your questions about the Alphabet 10-K report. Please go ahead and ask whatever you'd like to know."
   },
   {
     "query": "According to the MD&A, how might the increasing proportion of revenues derived from non-advertising sources like Google Cloud and devices potentially impact Alphabet's overall operating margin, and why?",
     "expected_tool_use": [
       {
-        "tool_name": "retrieve_rag_documentation",
+        "tool_name": "ask_chromadb",
         "tool_input": {
-          "query": "How does the growth of non-advertising revenue affect Alphabet's margins?"
+          "query_text": "how might the increasing proportion of revenues derived from non-advertising sources like Google Cloud and devices potentially impact Alphabet's overall operating margin, and why?"
         }
       }
     ],
-    "reference": "The report states that revenues from cloud, consumer subscriptions, platforms, and devices are increasing. It notes that the margins on these revenues vary significantly and are generally lower than advertising margins. Specifically, device sales adversely affect consolidated margins due to pricing pressure and higher cost of sales. Therefore, this trend may exert downward pressure on the overall operating margin. [Citation: Based on Alphabet 10-K for FYE Dec 31, 2024, Item 7]"
+    "reference": "The increasing proportion of revenues from non-advertising sources, such as Google Cloud, devices, and consumer subscription products, could potentially lead to downward pressure on Alphabet's operating margin. This is because these business areas may have margins that are lower than those generated from advertising. Citations: 1) alphabet-form-10-K-2024.pdf (Page 12)"
   },
   {
     "query": "The report mentions significant investments in AI. What specific connection is drawn between these AI investments and the company's expectations regarding future capital expenditures?",
     "expected_tool_use": [
       {
-        "tool_name": "retrieve_rag_documentation",
+        "tool_name": "ask_chromadb",
         "tool_input": {
-          "query": "Relationship between Alphabet's AI strategy and capital expenditure forecasts"
+          "query_text": "What specific connection is drawn between AI investments and the company's expectations regarding future capital expenditures?"
         }
       }
     ],
-    "reference": "The report explicitly states an expectation that capital expenditures will increase, including expected spend and increased technical infrastructure investment, *in particular* to support AI products and services. [Citation: Based on Alphabet 10-K for FYE Dec 31, 2024, Item 7 & Note About Forward-Looking Statements]"
+    "reference": "Alphabet expects its capital expenditures to increase, specifically including an expected increase in technical infrastructure investment—such as servers, network equipment, and data centers—to support the growth of its business and long-term initiatives, particularly in support of artificial intelligence (AI) products and services. Citations: 1) alphabet-form-10-K-2024.pdf, Page 3 2) alphabet-form-10-K-2024.pdf, Page 31"
   }
 ]

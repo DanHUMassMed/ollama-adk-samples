@@ -2,12 +2,8 @@ import warnings
 from typing import Optional
 
 from opentelemetry import trace
-from opentelemetry.sdk.trace import TracerProvider
 
 from phoenix.otel import register
-from opentelemetry.sdk.trace.export import BatchSpanProcessor
-from opentelemetry.sdk.trace import TracerProvider
-from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
 from openinference.instrumentation.google_adk import GoogleADKInstrumentor
 
 

@@ -1,45 +1,31 @@
 [project]
-name = "adk-reference-arch"
+name = "adk-ollama-samples"
 version = "0.1.0"
-description = "Streaming chat application using FastAPI and Google ADK"
-requires-python = ">=3.13"
+description = "Ollama ADK Samples"
+requires-python = ">=3.14"
 readme = "README.md"
 
 dependencies = [
-"aiosqlite>=0.22.1",
-"arize-phoenix>=12.25.1",
-"chromadb>=0.4.21",
-"ddgs>=9.10.0",
-"docker>=6.1.3",
-"fastapi>=0.127.0",
-"google-adk[a2a,eval]>=1.25.0",
-"google-genai>=1.53.0",
-"googlemaps>=4.10.0",
-"greenlet>=3.2.0",
-"httpx>=0.28.1",
-"langchain-text-splitters>=1.1.0",
-"litellm>=1.80.10",
-"mcp[cli]>=1.13.0",
-"openinference-instrumentation-google-adk>=0.1.8",
-"openinference-instrumentation-litellm>=0.1.8",
-"openinference-instrumentation>=0.1.42",
-"opentelemetry-sdk>=1.24.0",
-"pydantic>=2.10.0",
-"pypdf>=6.4.2",
-"pytest-asyncio>=1.3.0",
-"pytest>=9.0.2",
-"python-dotenv>=1.2.1",
-"sentence-transformers>=5.2.0",
-"sqlalchemy>=2.0.45",
-"starlette>=0.50.0",
-"typing-extensions>=4.8.0",
-"uvicorn[standard]>=0.40.0",
+    "arize-phoenix>=12.25.1",
+    "chromadb>=0.4.21",
+    "google-adk[a2a,eval]>=2.0.0a3",
+    "httpx>=0.28.1",
+    "ipywidgets>=8.0.0",
+    "ipykernel>=6.31.0",
+    "litellm>=1.82.6",
+    "mcp[cli]>=1.13.0",
+    "pypdf>=6.4.2",
+    "sentence-transformers>=5.2.0",
+    "langchain-text-splitters>=1.1.0",
+    "openinference-instrumentation-google-adk>=0.1.10",
+    "pytest-asyncio>=1.3.0",
+    "pytest>=9.0.2",
 ]
 
 [project.optional-dependencies]
 dev = [
-    "ruff>=0.4.0",
-    "mypy>=1.10.0",
+    "ruff>=0.15.11",
+    "mypy>=1.20.1",
     "pre-commit>=3.7.0",
     "types-requests>=2.32.4.20260107",
 ]
@@ -49,7 +35,7 @@ dev = [
 # -----------------------------
 [tool.ruff]
 line-length = 88
-target-version = "py313"
+target-version = "py314"
 fix = true
 
 [tool.ruff.lint]
@@ -74,7 +60,7 @@ indent-style = "space"
 # Mypy (typing)
 # -----------------------------
 [tool.mypy]
-python_version = "3.13"
+python_version = "3.14"
 ignore_missing_imports = true
 warn_unused_ignores = true
 warn_redundant_casts = true

@@ -42,10 +42,13 @@ def return_instructions_root() -> str:
         1) RAG Guide: Implementation Best Practices
         2) Advanced Retrieval Techniques: Vector Search Methods"
 
-        Do not reveal your internal chain-of-thought or how you used the chunks.
-        Simply provide concise and factual answers, and then list the
-        relevant citation(s) at the end. If you are not certain or the
-        information is not available, clearly state that you do not have
-        enough information.
+        CRITICAL INSTRUCTIONS:
+        You are a conversational chatbot and must speak directly to the user.
+        UNDER NO CIRCUMSTANCES should you output internal reasoning, planning, or chain-of-thought text.
+        Your output must exclusively contain the final text you wish to speak to the user.
+        Do not use words like "The user is asking...", "Plan:", "Connecting the dots", or "I need to...".
+        Your absolute first word output must be the beginning of your conversational response.
+        For tool calls, when using ask_chromadb, you MUST pass the relevant part of the user's question VERBATIM as the query_text without summarizing or rephrasing it.
+        If the user says exactly "Hi there, I have some questions about the Alphabet 10-K report.", reply ONLY with exactly: "Hello! I'd be happy to help you with your questions about the Alphabet 10-K report. Please go ahead and ask whatever you'd like to know."
         """
         return instruction_prompt_v1
