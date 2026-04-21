@@ -16,15 +16,18 @@
 
 from google.adk.agents import LlmAgent
 from google.adk.tools.agent_tool import AgentTool
+from google.adk.models.lite_llm import LiteLlm
 
 from . import prompt
+from .hooks import strip_thinking_hook, enforce_think_tags
 from .sub_agents.data_analyst import data_analyst_agent
 from .sub_agents.execution_analyst import execution_analyst_agent
 from .sub_agents.risk_analyst import risk_analyst_agent
 from .sub_agents.trading_analyst import trading_analyst_agent
 
-MODEL = "gemini-2.5-flash"
-
+MODEL=LiteLlm(model="openai/gemma4:26b",
+            api_base="http://localhost:11434/v1", 
+            api_key="my_api_key")
 
 financial_coordinator = LlmAgent(
     name="financial_coordinator",
@@ -35,7 +38,7 @@ financial_coordinator = LlmAgent(
         "analyze a market ticker, develop trading strategies, define "
         "execution plans, and evaluate the overall risk."
     ),
-    instruction=prompt.FINANCIAL_COORDINATOR_PROMPT,
+    instruction=enforce_think_tags(prompt.FINANCIAL_COORDINATOR_PROMPT),
     output_key="financial_coordinator_output",
     tools=[
         AgentTool(agent=data_analyst_agent),
@@ -43,6 +46,7 @@ financial_coordinator = LlmAgent(
         AgentTool(agent=execution_analyst_agent),
         AgentTool(agent=risk_analyst_agent),
     ],
+    after_model_callback=strip_thinking_hook,
 )
 
 root_agent = financial_coordinator

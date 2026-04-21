@@ -9,11 +9,10 @@ local_python_executor = ContainerCodeExecutor(
     cpu_limit=1.0              # cpu limit
 )
 
-MODEL=LiteLlm(model="openai/gpt-oss:20b",
+MODEL=LiteLlm(model="openai/gemma4:26b",
             api_base="http://localhost:11434/v1", 
             api_key="my_api_key")
             
-MODEL="gemini-3-flash-preview"
 
 # 2️⃣ Define agent with code_executor
 coder_agent = Agent(

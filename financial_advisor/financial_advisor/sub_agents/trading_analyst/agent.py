@@ -1,28 +1,17 @@
-# Copyright 2025 Google LLC
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-"""Execution_analyst_agent for finding the ideal execution strategy"""
 
 from google.adk import Agent
-
+from google.adk.models.lite_llm import LiteLlm
 from . import prompt
+from ...hooks import strip_thinking_hook, enforce_think_tags
 
-MODEL = "gemini-2.5-flash"
+MODEL=LiteLlm(model="openai/gemma4:26b",
+            api_base="http://localhost:11434/v1", 
+            api_key="my_api_key")
 
 trading_analyst_agent = Agent(
     model=MODEL,
     name="trading_analyst_agent",
-    instruction=prompt.TRADING_ANALYST_PROMPT,
+    instruction=enforce_think_tags(prompt.TRADING_ANALYST_PROMPT),
     output_key="proposed_trading_strategies_output",
+    after_model_callback=strip_thinking_hook,
 )
