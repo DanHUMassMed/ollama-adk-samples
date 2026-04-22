@@ -6,7 +6,7 @@ from google.adk.models.lite_llm import LiteLlm
 from .tools import searxng_search_tool
 
 from . import prompt
-from ...hooks import strip_thinking_hook, enforce_think_tags
+from ...callbacks import strip_thinking_hook
 
 MODEL=LiteLlm(model="openai/gemma4:26b",
             api_base="http://localhost:11434/v1", 
@@ -15,7 +15,7 @@ MODEL=LiteLlm(model="openai/gemma4:26b",
 data_analyst_agent = Agent(
     model=MODEL,
     name="data_analyst_agent",
-    instruction=enforce_think_tags(prompt.DATA_ANALYST_PROMPT),
+    instruction=prompt.DATA_ANALYST_PROMPT,
     output_key="market_data_analysis_output",
     tools=[searxng_search_tool],
     after_model_callback=strip_thinking_hook,

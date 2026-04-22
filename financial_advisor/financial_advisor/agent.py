@@ -19,7 +19,7 @@ from google.adk.tools.agent_tool import AgentTool
 from google.adk.models.lite_llm import LiteLlm
 
 from . import prompt
-from .hooks import strip_thinking_hook, enforce_think_tags
+from .callbacks import strip_thinking_hook
 from .sub_agents.data_analyst import data_analyst_agent
 from .sub_agents.execution_analyst import execution_analyst_agent
 from .sub_agents.risk_analyst import risk_analyst_agent
@@ -38,7 +38,7 @@ financial_coordinator = LlmAgent(
         "analyze a market ticker, develop trading strategies, define "
         "execution plans, and evaluate the overall risk."
     ),
-    instruction=enforce_think_tags(prompt.FINANCIAL_COORDINATOR_PROMPT),
+    instruction=prompt.FINANCIAL_COORDINATOR_PROMPT,
     output_key="financial_coordinator_output",
     tools=[
         AgentTool(agent=data_analyst_agent),

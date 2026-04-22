@@ -3,11 +3,10 @@
 
 from google.adk import Agent
 from . import prompt
-
-MODEL = "gemini-2.5-flash"
+from ...config import config
 
 academic_newresearch_agent = Agent(
-    model=MODEL,
+    model=config.BASE_MODEL,
     name="academic_newresearch_agent",
     instruction=prompt.ACADEMIC_NEWRESEARCH_PROMPT,
 )

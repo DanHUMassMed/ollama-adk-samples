@@ -1,26 +1,10 @@
-
-import io
-import litellm
-from pypdf import PdfReader
-from typing import Optional
-
-from google.adk.agents import LlmAgent
-from google.adk.tools.agent_tool import AgentTool
-from google.adk.models.lite_llm import LiteLlm
 from google.adk.agents.callback_context import CallbackContext
 from google.adk.models.llm_request import LlmRequest
 from google.adk.models.llm_response import LlmResponse
 from google.genai import types
-
-from . import prompt
-from .sub_agents.academic_newresearch import academic_newresearch_agent
-from .sub_agents.academic_websearch import academic_websearch_agent
-
-litellm._turn_on_debug()
-
-MODEL=LiteLlm(model="openai/gpt-oss:20b",
-            api_base="http://localhost:11434/v1", 
-            api_key="my_api_key")
+from pypdf import PdfReader
+from typing import Optional
+import io
 
 def intercept_and_parse_pdf(
     callback_context: CallbackContext, llm_request: LlmRequest
@@ -82,24 +66,3 @@ def intercept_and_parse_pdf(
         content.parts = new_parts
         
     return None
-
-academic_coordinator = LlmAgent(
-    name="academic_coordinator",
-    model=MODEL,
-    description=(
-        "analyzing seminal papers provided by the users, "
-        "providing research advice, locating current papers "
-        "relevant to the seminal paper, generating suggestions "
-        "for new research directions, and accessing web resources "
-        "to acquire knowledge"
-    ),
-    instruction=prompt.ACADEMIC_COORDINATOR_PROMPT,
-    output_key="seminal_paper",
-    tools=[
-        AgentTool(agent=academic_websearch_agent),
-        AgentTool(agent=academic_newresearch_agent),
-    ],
-    before_model_callback=intercept_and_parse_pdf,
-)
-
-root_agent = academic_coordinator

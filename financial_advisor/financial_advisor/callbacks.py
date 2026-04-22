@@ -5,6 +5,8 @@ from google.adk.agents.callback_context import CallbackContext
 from google.adk.models.llm_response import LlmResponse
 from google.genai import types 
 
+
+
 def strip_thinking_hook(
     callback_context: CallbackContext, llm_response: LlmResponse
 ) -> Optional[LlmResponse]:
@@ -16,10 +18,6 @@ def strip_thinking_hook(
     has_changes = False
     
     for i, part in enumerate(llm_response.content.parts):
-        # The user requested to print the text so we see the output while it is processing
-        # if hasattr(part, 'text') and part.text:
-        #    print(f"--- Part {i} --- thought={getattr(part, 'thought', False)}\n{part.text}\n")
-        
         # Check if it has a thought attribute
         is_thought = getattr(part, 'thought', False)
         
@@ -29,7 +27,6 @@ def strip_thinking_hook(
 
         if is_thought:
             has_changes = True
-            # print(f"DEBUG: Stripping thought part: {part.text[:50] if hasattr(part, 'text') else '...'}...")
         else:
             modified_parts.append(deepcopy(part))
             
@@ -41,6 +38,3 @@ def strip_thinking_hook(
     
     return None
 
-def enforce_think_tags(original_prompt: str) -> str:
-    """Pass-through: Gemma4 handles thoughts natively, no prompt enforcing needed."""
-    return original_prompt
