@@ -23,6 +23,8 @@ class AgentConfiguration:
 
     FAST_MODEL = BASE_MODEL
 
+
+
     max_search_results: int = 10
 
 
